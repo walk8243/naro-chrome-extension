@@ -1,0 +1,16 @@
+{
+	"name": "小説家になろう",
+	"description": "「小説家になろう」のChromeExtension",
+	"version": "1.0",
+	"manifest_version": 3,
+	"content_scripts": [
+		{
+			"matches": [
+				"https://ncode.syosetu.com/n9424hh/28/"
+			],
+			"js": [
+				"dist/novel.js"
+			]
+		}
+	]
+}

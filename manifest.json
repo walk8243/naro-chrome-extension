@@ -9,7 +9,8 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"https://ncode.syosetu.com/n9424hh/28/"
+				"https://ncode.syosetu.com/*/*/",
+				"https://novel18.syosetu.com/*/*/"
 			],
 			"js": [
 				"dist/novel.js"
@@ -23,6 +24,14 @@
 		"inject-script": {
 			"suggested_key": "Ctrl+Shift+Y",
 			"description": "Inject a script on the page"
+		},
+		"next-page": {
+			"suggested_key": "Ctrl+Right",
+			"description": "次のページにめくる"
+		},
+		"prev-page": {
+			"suggested_key": "Ctrl+Left",
+			"description": "前のページにめくる"
 		}
 	}
 }

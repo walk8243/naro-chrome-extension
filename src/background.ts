@@ -1,3 +1,5 @@
+import { CommandError } from './error/CommandError';
+
 chrome.commands.onCommand.addListener((command) => {
 	console.log(`Command "${command}" triggered`);
 
@@ -12,9 +14,3 @@ chrome.commands.onCommand.addListener((command) => {
 		});
 	});
 });
-
-class CommandError extends Error {
-	constructor(message: string = 'command error') {
-		super(message);
-	}
-}

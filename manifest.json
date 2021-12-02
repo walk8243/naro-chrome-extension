@@ -3,6 +3,9 @@
 	"description": "「小説家になろう」のChromeExtension",
 	"version": "1.0",
 	"manifest_version": 3,
+	"permissions": [
+		"activeTab"
+	],
 	"content_scripts": [
 		{
 			"matches": [
@@ -12,5 +15,14 @@
 				"dist/novel.js"
 			]
 		}
-	]
+	],
+	"background": {
+		"service_worker": "dist/background.js"
+	},
+	"commands": {
+		"inject-script": {
+			"suggested_key": "Ctrl+Shift+Y",
+			"description": "Inject a script on the page"
+		}
+	}
 }

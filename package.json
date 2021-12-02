@@ -13,13 +13,15 @@
     "url": "git+https://github.com/walk8243/naro-chrome-extension.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "walk8243",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/walk8243/naro-chrome-extension/issues"
   },
   "homepage": "https://github.com/walk8243/naro-chrome-extension#readme",
+  "dependencies": {},
   "devDependencies": {
+    "@types/chrome": "0.0.166",
     "typescript": "^4.5.2"
   }
 }

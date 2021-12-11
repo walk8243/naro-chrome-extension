@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
 	entry: {
 		background: './src/background.ts',
-		novel: './src/novel.ts',
+		novel: './src/page/novel.ts',
 	},
 	mode: 'development',
 	module: {

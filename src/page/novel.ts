@@ -1,17 +1,18 @@
-import { Command } from './data/Command';
+import { Command } from '../data/Command';
+import { Novel } from '../module/Novel';
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log('chrome.runtime.onMessage', request);
+    console.debug('chrome.runtime.onMessage', request);
 	const command: Command = request;
 	let isExec: boolean = false;
 	if(command.command === 'next-page') {
-		const btn = document.getElementById('novel_color')?.getElementsByClassName('novel_bn')[0]?.getElementsByTagName('a')[1];
+		const btn = Novel.getNextPageBtn();
 		if(btn) {
 			btn.click();
 		}
 		isExec = true;
 	} else if(command.command === 'prev-page') {
-		const btn = document.getElementById('novel_color')?.getElementsByClassName('novel_bn')[0]?.getElementsByTagName('a')[0];
+		const btn = Novel.getPrevPageBtn();
 		if(btn) {
 			btn.click();
 		}

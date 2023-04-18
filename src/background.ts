@@ -1,17 +1,16 @@
 import { CommandError } from './error/CommandError';
 import { Command } from './data/Command';
 
-chrome.commands.onCommand.addListener((command) => {
+chrome.commands.onCommand.addListener(async (command) => {
 	console.log('コマンド', command, 'を実行します');
 
-	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-		if(!tabs.length) { return; }
-		chrome.tabs.sendMessage(tabs[0].id!, { command } as Command, (res) => {
-			if(chrome.runtime.lastError) {
-				console.debug(new CommandError(chrome.runtime.lastError.message));
-                return;
-            }
-			console.log('res', res);
-		});
-	});
+	const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
+	if(!tabs.length) { return; }
+
+	try {
+		const res = await chrome.tabs.sendMessage(tabs[0].id!, { command } as Command);
+		console.log('res', res);
+	} catch (error) {
+		console.debug(new CommandError(error instanceof Error ? error.message : JSON.stringify(error)));
+	}
 });

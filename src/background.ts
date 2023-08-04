@@ -1,7 +1,7 @@
 import { CommandError } from './error/CommandError';
 import { Command } from './data/Command';
 
-chrome.commands.onCommand.addListener(async (command) => {
+const action = async (command: string) => {
 	console.log('コマンド', command, 'を実行します');
 
 	const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -13,4 +13,6 @@ chrome.commands.onCommand.addListener(async (command) => {
 	} catch (error) {
 		console.debug(new CommandError(error instanceof Error ? error.message : JSON.stringify(error)));
 	}
-});
+};
+
+chrome.commands.onCommand.addListener((command) => { action(command); });

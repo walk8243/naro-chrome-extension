@@ -1,7 +1,7 @@
 {
 	"name": "小説家になろう",
 	"description": "「小説家になろう」のChromeExtension",
-	"version": "1.0",
+	"version": "1.1",
 	"manifest_version": 3,
 	"permissions": [
 		"activeTab"
@@ -9,8 +9,8 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"https://ncode.syosetu.com/**/",
-				"https://novel18.syosetu.com/**/"
+				"https://ncode.syosetu.com/**",
+				"https://novel18.syosetu.com/**"
 			],
 			"run_at": "document_idle",
 			"js": [
@@ -22,16 +22,16 @@
 		"service_worker": "dist/background.js"
 	},
 	"commands": {
-		"inject-script": {
-			"suggested_key": "Ctrl+Shift+Y",
-			"description": "Inject a script on the page"
-		},
 		"next-page": {
-			"suggested_key": "Ctrl+Right",
+			"suggested_key": {
+				"default": "Ctrl+Right"
+			},
 			"description": "次のページにめくる"
 		},
 		"prev-page": {
-			"suggested_key": "Ctrl+Left",
+			"suggested_key": {
+				"default": "Ctrl+Left"
+			},
 			"description": "前のページにめくる"
 		}
 	}

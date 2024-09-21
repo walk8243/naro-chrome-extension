@@ -1,7 +1,7 @@
 {
 	"name": "小説家になろう",
 	"description": "「小説家になろう」のChromeExtension",
-	"version": "1.1",
+	"version": "2.0.2",
 	"manifest_version": 3,
 	"permissions": [
 		"activeTab"

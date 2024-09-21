@@ -1,6 +1,6 @@
 {
   "name": "naro-chrome-extension",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "「小説家になろう」のChromeExtension",
   "scripts": {
     "build": "npx webpack --mode=production",
